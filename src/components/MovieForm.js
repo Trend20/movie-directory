@@ -9,9 +9,24 @@ const MovieForm = (props) =>{
   const [movies, setMovies] = useState([]);
 
 
+  const handleFormSubmit = (e) =>{
+    e.preventDefault();
+
+    const newMovie = {
+      name: name,
+      ratings: ratings,
+      duration: duration
+    }
+
+    setMovies(movies.concat(newMovie));
+    setName("");
+    setRatings("");
+    setDuration("");
+  }
+
   return (
     <div className='movie-form'>
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="name">Movie Name</label>
           <input type="text"
@@ -38,6 +53,8 @@ const MovieForm = (props) =>{
           onChange={(event) => setDuration(event.target.value)}
           />
         </div>
+
+        <button type="submit">Add Movie</button>
       </form>
     </div>
   )
