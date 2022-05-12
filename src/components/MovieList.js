@@ -1,8 +1,18 @@
 import React from 'react'
 
-function MovieList() {
+function MovieList(props) {
   return (
-    <div>MovieList</div>
+    <div>
+      {
+       props.movies.map((movie, index) =>(
+         <div key={index}>
+           <h1>{movie.name}</h1>
+           <p>{movie.name}</p>
+           <p>{movie.name}</p>
+         </div>
+       )) 
+      }
+    </div>
   )
 }
 

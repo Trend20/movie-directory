@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
+import MovieList from './MovieList';
+import Search from './Search';
 
 const MovieForm = (props) =>{
 
@@ -56,6 +58,9 @@ const MovieForm = (props) =>{
 
         <button type="submit">Add Movie</button>
       </form>
+
+      <Search />
+      <MovieList movies={movies} />
     </div>
   )
 }
