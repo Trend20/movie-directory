@@ -1,10 +1,9 @@
 import './App.css';
 import MovieForm from './components/MovieForm';
-import Search from './components/Search';
 
 const App = () =>{
   return (
-    <div className="App">
+    <div className="app">
      <MovieForm />
     </div>
   );
