@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components';
 
-function Search() {
+const Search =() =>{
+
+  const [seachTerm, setSearchTerm] = useState("");
   return (
     <div className='search' style={{ width: '100%' }}>
       <SearchInput type="text" placeholder='Search Movie here...'/>

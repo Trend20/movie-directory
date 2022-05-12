@@ -6,7 +6,7 @@ import Search from './Search';
 const MovieForm = (props) =>{
 
   const [name, setName] = useState("");
-  const [ratings, setRatings] = useState(0);
+  const [ratings, setRatings] = useState(1);
   const [duration, setDuration] = useState("");
   const [movies, setMovies] = useState([]);
 
@@ -51,7 +51,9 @@ const MovieForm = (props) =>{
           placeholder='Enter ratings'
           value={ratings} 
           required={true}
-          onChange={(event) => setRatings(event.target.value)}
+          onChange={(event) => {
+            const value = Math.max(min, Math.min(max, Number(event.target.value)));
+            setRatings(value)}}
           />
         </FormGroup>
         <FormGroup className="form-group">
