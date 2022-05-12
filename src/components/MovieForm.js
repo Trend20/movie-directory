@@ -33,6 +33,7 @@ const MovieForm = (props) =>{
           <label htmlFor="name">Movie Name</label>
           <FormInput type="text"
           value={name} 
+          required={true}
           onChange={(event) => setName(event.target.value)}
           placeholder='Enter Movie Name'
           />
@@ -43,6 +44,7 @@ const MovieForm = (props) =>{
           type="number" 
           placeholder='Enter ratings'
           value={ratings} 
+          required={true}
           onChange={(event) => setRatings(event.target.value)}
           />
         </FormGroup>
@@ -51,7 +53,8 @@ const MovieForm = (props) =>{
           <FormInput 
           type="text" 
           placeholder='Enter duration in hours or minutes'
-          value={duration} 
+          value={duration}
+          required={true} 
           onChange={(event) => setDuration(event.target.value)}
           />
         </FormGroup>
@@ -106,7 +109,7 @@ const Button = styled.button`
   border: none;
   margin-top: 15px;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   width: 30%;
   background-color: #1a8011;
   color: #fff;
