@@ -11,6 +11,10 @@ const MovieForm = (props) =>{
   const [movies, setMovies] = useState([]);
 
 
+  const min = 1;
+  const max = 100;
+
+
   const handleFormSubmit = (e) =>{
     e.preventDefault();
 
@@ -34,7 +38,9 @@ const MovieForm = (props) =>{
           <FormInput type="text"
           value={name} 
           required={true}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) => {
+            setName(event.target.value)
+          }}
           placeholder='Enter Movie Name'
           />
         </FormGroup>
