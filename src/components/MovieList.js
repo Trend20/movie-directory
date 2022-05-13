@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
+import Search from './Search';
 
 function MovieList(props) {
   return (
-    <MovieListContainer className='movie-list'>
+   <div style={{ display: "flex", flexDirection: 'column', width: '100%' }}>
+     <Search movies={props.movies} />
+      <MovieListContainer className='movie-list'>
       {
        props.movies.map((movie, index) =>(
          <MovieContainer key={index}>
@@ -14,6 +17,7 @@ function MovieList(props) {
        )) 
       }
     </MovieListContainer>
+   </div>
   )
 }
 

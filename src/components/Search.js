@@ -1,12 +1,26 @@
 import React, { useState} from 'react'
 import styled from 'styled-components';
 
-const Search =() =>{
+const Search = ({movies}) =>{
 
-  const [seachTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  // const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredOptions = movies.filter(option =>{
+    return(
+      option.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  })
+  const handleSearch = (event) =>{
+    setSearchTerm(event.target.value)
+  }
   return (
     <div className='search' style={{ width: '100%' }}>
-      <SearchInput type="text" placeholder='Search Movie here...'/>
+      <SearchInput type="text" 
+      onChange={handleSearch}
+      value={searchTerm} 
+      placeholder='Search Movie here...'
+      />
     </div>
   )
 }

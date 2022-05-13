@@ -70,7 +70,6 @@ const MovieForm = (props) =>{
         <Button type="submit">Add Movie</Button>
       </Form>
 
-      <Search />
       <MovieList movies={movies} />
     </MovieFormContainer>
   )
