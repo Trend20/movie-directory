@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import Search from './Search';
 
 const MovieForm = ({movies, setMovies}) =>{
 
@@ -112,7 +111,7 @@ const Button = styled.button`
   margin-top: 15px;
   justify-content: center;
   align-items: center;
-  width: 30%;
+  width: 40%;
   background-color: #1a8011;
   color: #fff;
   font-weight: 700;

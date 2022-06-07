@@ -1,12 +1,26 @@
-import React from 'react'
+import React, { useState} from 'react'
 import styled from 'styled-components';
+import Search from './Search';
 
-function MovieList(props) {
+function MovieList({movies}) {
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredName, setFilteredName] = useState("");
+
+  const handleSearch = (newSearchTerm) =>{
+    setSearchTerm(newSearchTerm)
+    movies.map((movie) =>{
+      if(movie.includes(searchTerm)){
+        setFilteredName(movie)
+      }
+    })
+  }
+
   return (
    <div style={{ display: "flex", flexDirection: 'column', width: '100%' }}>
       <MovieListContainer className='movie-list'>
       {
-       props.movies.map((movie, index) =>(
+       movies.map((movie, index) =>(
          <MovieContainer key={index}>
            <h4>Name: {movie.name}</h4>
            <h5>Ratings: {movie.ratings}</h5>
@@ -15,6 +29,14 @@ function MovieList(props) {
        )) 
       }
     </MovieListContainer>
+
+    <Search handleSearch={handleSearch} />
+     <div>
+       <ul>
+        {filteredName}
+       </ul>
+       
+     </div>
    </div>
   )
 }
