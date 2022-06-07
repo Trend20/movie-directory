@@ -1,19 +1,16 @@
 import React, {useState} from 'react'
 import styled from 'styled-components';
-import MovieList from './MovieList';
 import Search from './Search';
 
-const MovieForm = (props) =>{
+const MovieForm = ({movies, setMovies}) =>{
 
   const [name, setName] = useState("");
   const [ratings, setRatings] = useState(1);
   const [duration, setDuration] = useState("");
-  const [movies, setMovies] = useState([]);
 
 
   const min = 1;
   const max = 100;
-
 
   const handleFormSubmit = (e) =>{
     e.preventDefault();
@@ -69,8 +66,6 @@ const MovieForm = (props) =>{
 
         <Button type="submit">Add Movie</Button>
       </Form>
-
-      <MovieList movies={movies} />
     </MovieFormContainer>
   )
 }
