@@ -5,36 +5,44 @@ import Search from './Search';
 function MovieList({movies}) {
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredName, setFilteredName] = useState("");
+  const [filteredName, setFilteredName] = useState({});
+
+
+  
+  const displayItems = movies.map((movie, index) =>{
+    return(
+         <MovieContainer key={index}>
+           <h4>Name: {movie.name}</h4>
+           <h5>Ratings: {movie.ratings}</h5>
+           <h6>Duration: {movie.duration}</h6>
+         </MovieContainer>
+    )
+  })
 
   const handleSearch = (newSearchTerm) =>{
     setSearchTerm(newSearchTerm)
     movies.map((movie) =>{
-      if(movie.includes(searchTerm)){
+      if(movie.includes(newSearchTerm)){
         setFilteredName(movie)
+      }else{
+        setFilteredName("")
       }
     })
   }
 
   return (
    <div style={{ display: "flex", flexDirection: 'column', width: '100%' }}>
-      <MovieListContainer className='movie-list'>
-      {
-       movies.map((movie, index) =>(
-         <MovieContainer key={index}>
-           <h4>Name: {movie.name}</h4>
-           <h5>Ratings: {movie.ratings}</h5>
-           <h6>Duration: {movie.duration}</h6>
-         </MovieContainer>
-       )) 
-      }
-    </MovieListContainer>
 
     <Search handleSearch={handleSearch} />
      <div>
-       <ul>
-        {filteredName}
-       </ul>
+       <div>
+         <li>{filteredName.name}</li>
+         <li>{filteredName.duration}</li>
+         <li>{filteredName.ratings}</li>
+       </div>
+       <MovieListContainer className='movie-list'>
+         {displayItems}
+       </MovieListContainer>
        
      </div>
    </div>
