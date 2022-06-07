@@ -1,11 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
-import Search from './Search';
 
 function MovieList(props) {
   return (
    <div style={{ display: "flex", flexDirection: 'column', width: '100%' }}>
-     <Search movies={props.movies} />
       <MovieListContainer className='movie-list'>
       {
        props.movies.map((movie, index) =>(
